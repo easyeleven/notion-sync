@@ -1,0 +1,30 @@
+name: Sync to Notion
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs at midnight every day
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Sync GitHub data to Notion
+        env:
+          NOTION_API_TOKEN: ${{ secret_TnaDfufN1h09vCjl4qeLP7Je3qgugiwJXggKhtdKe1E
+ }}
+          NOTION_DATABASE_ID: 1cbdcc7a064e4674bd2943e1e0ac6019
+        run: |
+          python sync_to_notion.py
