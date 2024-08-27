@@ -8,7 +8,7 @@ GITHUB_TOKEN = os.getenv('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')
 NOTION_TOKEN = os.getenv('secret_TnaDfufN1h09vCjl4qeLP7Je3qgugiwJXggKhtdKe1E')
 NOTION_DATABASE_ID = os.getenv('1cbdcc7a064e4674bd2943e1e0ac6019‎')
 
-g = Github(GITHUB_TOKEN.)
+g = Github(GITHUB_TOKEN)
 
 # Function to handle rate limiting
 def handle_rate_limiting():
